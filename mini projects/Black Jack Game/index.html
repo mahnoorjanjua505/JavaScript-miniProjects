@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Jack Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>BlackJack</h1>
+        <p id="msg-el">Want to play a round?</p>
+        <p id="cards-el">Cards: </p>
+        <img src="/" alt="">
+        <p id="sum-el">Sum: </p>
+        <div class="btn">
+            <button id="btn" onclick="startGame()">Start Game</button>
+            <button id="btn" onclick="newCard()">New Card</button>
+        </div>
+        <!-- <p id="greeting-el"></p> -->
+        <p id="player-el"></p>
+    </div>
+</body>
+<script>
+    // let firstCard = 1; 
+    let firstCard = random()
+// let secondCard = 10;
+let secondCard = random();
+let alive = false;
+let hasBlackjack = false;
+let card= [];
+// this means in starting game we dont have any hard code number before 
+// let sum = firstCard + secondCard; 
+let sum = 0;
+   let msgEL = document.getElementById("msg-el")
+   let msg = " ";
+   let sumEL = document.getElementById("sum-el")
+   let cardsEL = document.getElementById("cards-el");
+   
+// creating a function which always returns random num from 1-13
+   function random() {
+    let RandomNumber = Math.floor( Math.random() *13) +1 
+    // we need to modify the numbers for king/queen/jack and Ace cards 
+    if (RandomNumber> 10){
+        return 10;
+    } else if(RandomNumber === 1){
+        // Ace can be either 1 or 11, depending on the total sum
+        return 11
+    } else {
+        return RandomNumber
+    }
+    return RandomNumber;
+    console.log(RandomNumber);
+}
+
+   function startGame(){
+    alive = true;
+    hasBlackjack = false;
+    // generating 2 random numbers 
+    let firstCard = random()
+    let secondCard = random();
+    card = [ firstCard, secondCard ]
+    sum = firstCard + secondCard
+    renderGame();
+   }
+function renderGame(){
+    if(sum <=20){
+        msg = " Do you want to draw a new card? 🙂";
+    }
+    else if (sum === 21){
+        // the condition  will be shown as 'false' and true until this situation comes 
+        hasBlackjack = true;
+        msg = "Wohoo! You've got a Blackjack!🥳"
+    }
+    else{
+        msg = "oops! You are out of the Game 😟 "
+        alive = false;
+    }
+
+   msgEL.textContent = msg
+sumEL.textContent = "Sum: " + sum;
+cardsEL.textContent = "Cards: ";
+for (i=0; i<card.length; i++){
+    cardsEL.textContent +=  card[i] + " ";
+}
+}
+
+function newCard(){
+// here we are puttiing condition nd saying tht when a player hasn't got a blackJack and a player stil in the game until then give him newCArd means run the entire code inside of the condtion we made
+if (alive === true && hasBlackjack === false){
+
+    let newCARD = random();
+// now adding this to the above sum var 
+sum+= newCARD;
+card.push(newCARD);
+// rendering our new card in array by push 
+renderGame();
+}
+}
+ 
+
+let player = {
+    name : "Mahnoor",
+     money:  120
+}
+
+ 
+ let playerEL =  document.getElementById("player-el")
+ playerEL.textContent = player.name + ": $" + player.money;
+
+
+
+// greeting msg first making array where our greetings are written
+// let sentence = ["Hello", 
+// "my",
+// "name",
+// "is",
+// "Mahnoor"
+// ]
+// // storing in a var thru gettin id from html 
+// let greetingEL = document.getElementById("greeting-el")
+// // now render the sentence in greetingEL paragrapgh using for loop and .textcontent 
+//  for (i=0; i<sentence.length; i++){
+//     greetingEL.textContent += sentence[i] + " ";
+//     // note: if we dont render + sign with = then it will only show the last data of ur string bcuz of the increment above each time, text.contnt will remove the last one automatically
+// }
+</script>
+</html>
