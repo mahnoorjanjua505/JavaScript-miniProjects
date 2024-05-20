@@ -1,0 +1,72 @@
+body{
+    background-color: antiquewhite;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+.input-el{
+    background: antiquewhite;
+    width: 130px; 
+    height: 20px;
+    border: 1px groove black;
+    text-decoration: none;
+    outline: none;
+}
+  
+  
+/* Removing spin buttons in number inputs */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.numbers{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    align-items: center;
+    /* text-decoration: underline;  */
+    font-size: 20px;
+    color: rgb(169, 159, 159);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-top: 55px;
+}
+.btns{
+    padding-top: 40px; 
+    width: 60%; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    align-items: center; 
+}
+.btn{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.btn:hover{
+    background-color: antiquewhite;
+    transition: 0.3s ease-in; 
+}
+@media screen and (max-width: 600px) {
+    .container {
+        margin-top: 20px; 
+    }
+    .btns {
+        width: 90%; 
+    }
+    .numbers{
+        flex-direction: column;
+        justify-content: space-between;
+        height:80px;
+        align-items: center;
+    }
+}
