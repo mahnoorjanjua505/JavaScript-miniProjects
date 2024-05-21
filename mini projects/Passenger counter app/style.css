@@ -1,11 +1,10 @@
 
 body{
-    background-image: url(pexels-vladimir-srajber-14387918.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.4)), url(bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
       height: 100vh; 
-     /* width: 100%;  */
-     background-color: rgba(205,205,205,255);
+
 }
 .container{
     display: flex;

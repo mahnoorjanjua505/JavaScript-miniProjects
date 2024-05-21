@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passenger Counter App</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
 </head>
 <body>
     <div class="container">
@@ -18,31 +17,6 @@
         <!-- how do we pass our argument or show our function here in HTML which display our increment  is easy we make var where we stored our above 'count-num' and then run tht code thuru innerhtml attribute help as show in JS file -->
         <p id="save-el">Previous Entries: </p>
     </div>
-    
-
 </body>
-<script>
-    // Subway Counter App 
-    let countPASS = document.getElementById("count-num");
-    // console.log(countPASS) - it will tell our js to run the element whomever has id name with 'count-num' so it did. similarly first we stored it in one VAR then we will say in the function tht whatever out stored var get in the text would be equal to out VAR tht is 'counts' which would be our increment value...
-let counts = 0;
-function increment(){
-    // counts = counts + 1; 
-    // we can use the shorter version to write the above code 
-    counts += 1;
-    countPASS.innerText = counts;
-}
-// each time button is pressed it shd incremnt the value from the last one 
-// -- giving functionality to our Save button 
-// first we need to grab our para nd then stored in variable as follows 
-let saveEL = document.getElementById("save-el");
-function save(){
-    savedEntries = counts + " - ";
-    saveEL.textContent+= savedEntries;
-    // text content here we are using bcuz innertext only show human readable content so it doesn't care of the space we put before and after the dashes 
-    counts=0;
-    countPASS.innerText = 0;
-    // here we reassigned the count value to 0 so that JS learnt the past saved number will forget as soon as we hit the saved button then we add into our countPASS var a number 0 so that we see on the web page 0 also.
- }
-</script>
+<script src="index.js"></script>
 </html>
